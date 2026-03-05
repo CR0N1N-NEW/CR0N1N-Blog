@@ -1,1 +1,221 @@
-.
+/*Импорт шрифтов*/
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+/*Более понятная база для дебага*/
+* {
+  box-sizing: border-box;
+}
+
+/*Переменнве цветов*/
+:root {
+  --bg-dark: hsl(265, 23%, 17%);
+  --bg: hsl(from var(--bg-dark) h s calc(12 + l));
+  --bg-light: hsl(from var(--bg-dark) h s calc(20 + l));
+  --font-color: hsl(from var(--bg-dark) h s calc(70 + l));
+  
+  /*На будущее*/
+  /*--accent-color: hsl(230, 15%, 50%);*/
+}
+
+.light-mode {
+  --bg-dark: hsl(265, 87%, 94%);
+  --bg: hsl(from var(--bg-dark) h s calc(l - 8));
+  --bg-light: hsl(from var(--bg-dark) h s calc(l - 27));
+  --font-color: hsl(from var(--bg-dark) h s calc(l - 75));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  min-height: 100dvh;
+  color: var(--font-color);
+  font-family: "Google Sans", Sans-Serif;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s linear, color 0.2s linear;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+
+footer {
+  padding: 12px;
+  color: var(--font-color);
+  text-align: center;
+}
+
+.tg-btn {
+  font-size: clamp(1rem, 1.75vw, 2rem);
+  color: var(--font-color);
+  text-decoration: none;
+  transition: transform 0.1s linear;
+}
+
+.tg-btn svg {
+  fill: var(--font-color);
+  vertical-align: middle;
+}
+
+.tg-btn:hover {
+  transform: scale(1.05);
+}
+
+.theme-switch {
+  min-width: 60px;
+  border-radius: 18px;
+  border: 0px solid var(--bg-light);
+  padding: 0.25rem 1rem;
+  color: var(--font-color);
+  background-color: var(--bg);
+  box-shadow: 0px 0px 6px var(--font-color);
+  font-size: clamp(.7rem, 1.5vw, 1.75rem);
+  z-index: 1000;
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+}
+
+h1 {
+  /*Размер шрифта без @media*/
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+  
+  width: fit-content;
+  margin: 1.5rem auto;
+}
+
+.grid-wrapper {
+  
+  display: grid;
+  align-items: center;
+  
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /*Авто подбор кол-ва для карт*/
+  gap: 1.5rem;
+  margin: 2.25em 2.5rem;
+  justify-content: center;
+  
+  /*Не забыть убрать!!!*/
+  /*border: 1px solid red; Визуальный дебаг*/
+}
+
+.blog-element {
+  border-radius: 28px;
+  /*border: 4px solid var(--bg-light);*/
+  box-shadow: 0px 0px 12px var(--bg-light);
+  transition: box-shadow 0.2s linear, transform 0.2s linear, border 0.2s linear;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+/*Вызов анимаций*/
+.blog-element:target {
+  animation: selected 1.25s ease-in-out 100ms 1;
+}
+
+/*Анимация перехода по ссылке*/
+@keyframes selected {
+  0% {
+    /*border: 4px solid var(--bg-light);*/
+    box-shadow: 0px 0px 12px var(--bg-light);
+  }
+  
+  40%, 50% {
+    /*border: 4px solid var(--font-color);*/
+    box-shadow: 0px 0px 12px var(--font-color);
+  }
+  
+  100% {
+    /*border: 4px solid var(--bg-light);*/
+    box-shadow: 0px 0px 12px var(--bg-light);
+  }
+}
+
+.blog-element:hover {
+  transform: translate( -2px, -4px);
+  box-shadow: 2px 4px 12px var(--bg-light);
+}
+
+.blog-gallery {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-gallery img {
+  width: 100%;
+  border: 2px solid var(--font-color);
+  /*aspect-ratio: 16 / 9;*/
+  /*object-fit: cover;*/
+  border-radius: 18px;
+  transition: transform 0.3s ease;
+}
+
+.blog-gallery img:hover {
+  transform: scale(1.03);
+}
+
+.blog-wrapper {
+  scroll-margin-top: 1rem;
+  color: var(--font-color);
+  background-color: var(--bg);
+  padding: 0.25rem 0.75rem;
+  /*border-radius: 18px;*/
+}
+
+.link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  position: relative;
+}
+
+.copy-link {
+  fill: var(--font-color);
+  flex-shrink: 0;
+  position: absolute;
+  right: 12px;
+  transition: transform 0.1s linear;
+}
+
+.copy-link:hover {
+  transform: scale(1.05);
+}
+
+.copy-link.copied {
+  transform: scale(1.1);
+}
+
+.blog-title {
+  /*Размер шрифта без @media*/
+  font-size: clamp(1rem, 2.75vw, 2.5rem);
+  text-align: center;
+  margin: 0;
+}
+
+.blog-info {
+  /*Размер шрифта без @media*/
+  font-size: clamp(.7rem, 1.75vw, 1.75rem);
+  white-space: pre-wrap;
+}
+
+.blog-element code {
+  /*Подсветка нужного текста*/
+  display: block;
+  /*border: 1px solid var(--font-color);*/
+  background-color: var(--bg-dark);
+  border-radius: 18px;
+  padding: 12px;
+}
