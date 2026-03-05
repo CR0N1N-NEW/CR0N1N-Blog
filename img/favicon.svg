@@ -1,1 +1,8 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Grafika (https://www.grafika.cc/) -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="135" height="135" viewBox="0 0 100 135" preserveAspectRatio="xMidYMid meet">
+	<g transform="matrix(1, 0, 0, 1, 50, 67.5)">
+		<path d="M0,-52.5 C-19.33,-52.5 -35,-36.83 -35,-17.5 L-35,-7.5 L-22,-7.5 L-22,-17.5 C-22,-29.65 -12.15,-39.5 0,-39.5 C12.15,-39.5 22,-29.65 22,-17.5 L22,-7.5 L35,-7.5 L35,-17.5 C35,-36.83 19.33,-52.5 0,-52.5 L0,-52.5 Z" style="fill:#7777A8;" />
+		<path d="M-40,-7.5 L40,-7.5 L40,57.5 L35,62.5 L-35,62.5 L-40,57.5 L-40,-7.5 Z" style="fill:#7777A8;" />
+	</g>
+</svg>
